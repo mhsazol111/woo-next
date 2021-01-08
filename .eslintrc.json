@@ -1,36 +1,31 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["airbnb", "eslint:recommended", "plugin:react/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "airbnb",
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "prettier"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "prettier"
-    ],
-    "rules": {
-        "strict": ["error", "global"],
-        "no-console": "off",
-        "semi": ["error", "always"],
-        // suppress errors for missing 'import React' in files (for next.js)
-        "react/react-in-jsx-scope": "off",
-        // allow jsx syntax in js files (for next.js)
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/jsx-one-expression-per-line": [0, { "allow": "single-child" }],
-        // disabling props type checking (for next.js)
-        "react/prop-types": [0]
-    }
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "strict": ["error", "global"],
+    "no-console": "off",
+    "semi": ["error", "always"],
+    "arrow-body-style": ["error", "always"],
+    // suppress errors for missing 'import React' in files (for next.js)
+    "react/react-in-jsx-scope": "off",
+    // allow jsx syntax in js files (for next.js)
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-one-expression-per-line": [0, { "allow": "single-child" }],
+    // disabling props type checking (for next.js)
+    "react/prop-types": [0],
+    "react/destructuring-assignment": [0, "always"],
+    "react/jsx-indent": ["error", 2]
+  }
 }
