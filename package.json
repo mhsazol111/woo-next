@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED='0' next dev",
+    "build": "NODE_TLS_REJECT_UNAUTHORIZED='0' next build",
+    "start": "NODE_TLS_REJECT_UNAUTHORIZED='0' next start"
   },
   "dependencies": {
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "autoprefixer": "^10.2.1",
+    "axios": "^0.21.1",
     "next": "10.0.5",
+    "postcss": "^8.2.4",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "eslint": "^7.17.0",

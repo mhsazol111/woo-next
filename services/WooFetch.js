@@ -1,10 +1,9 @@
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
-import config from '../config/config';
 
 const wooApiService = new WooCommerceRestApi({
-  url: config.siteUrl,
-  consumerKey: config.wooConsumerKey,
-  consumerSecret: config.wooConsumerSecret,
+  url: process.env.siteUrl,
+  consumerKey: process.env.wooConsumerKey,
+  consumerSecret: process.env.wooConsumerSecret,
   version: 'wc/v3',
   axiosConfig: { headers: {} }
 });

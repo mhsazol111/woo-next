@@ -1,39 +1,27 @@
-import { useEffect, useState } from 'react';
-import wooApiService from '../services/WooFetch';
+import Link from 'next/link';
+import { fetchProducts } from '../services/fetchData';
 
-const Products = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [hasError, setHasError] = useState();
+export const getStaticProps = async () => {
+  const products = await fetchProducts();
+  return {
+    props: { products },
+  };
+};
 
-  useEffect(() => {
-    setIsLoading(true);
-
-    const fetchProducts = async () => {
-      try {
-        const response = await wooApiService.get('products');
-        setProducts(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        setHasError(error.message);
-        setIsLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
+const Products = ({ products }) => {
   return (
     <div>
-      {isLoading ? <h1>Loading...</h1> : ''}
-
-      {!hasError &&
-        products &&
+      {products ? (
         products.map((product) => {
-          return <h1 key={product.id}>{product.name}</h1>;
-        })}
-
-      {hasError ? <h1>{hasError}</h1> : ''}
+          return (
+            <h1 key={product.id}>
+              <Link href={`/products/${product.slug}`}>{product.name}</Link>
+            </h1>
+          );
+        })
+      ) : (
+        <h1>Something Went Wrong</h1>
+      )}
     </div>
   );
 };
