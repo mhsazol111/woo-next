@@ -1,0 +1,7 @@
+#main_header {
+  position: relative;
+  z-index: 2;
+}
+.top_header {
+  border-radius: 10px;
+}
