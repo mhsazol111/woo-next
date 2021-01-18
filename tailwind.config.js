@@ -1,8 +1,8 @@
 module.exports = {
   purge: {
-    enabled: true,
+    enabled: false,
     // content: ['src/**/*.js', 'src/**/*.jsx', 'src/**/*.ts', 'src/**/*.tsx', 'public/**/*.html'],
-    content: ['./pages/**/*.js', './pages/**/*.jsx', './components/**/*.js', './components/**/*.jsx'],
+    content: ['./pages/**/*.js', './pages/**/*.jsx', './src/components/**/*.js', './src/components/**/*.jsx'],
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {},
+  },
+  corePlugins: {
+    float: false,
   },
   variants: {
     extend: {},

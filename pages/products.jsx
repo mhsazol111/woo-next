@@ -1,10 +1,9 @@
-import Link from 'next/link';
-import Head from 'next/head';
-import { fetchProducts } from '../services/fetchData';
-import Layout from '../components/Layout';
+import ProductGridItem from '../src/components/ProductGridItem';
+import { getProducts } from '../src/services/fetchData';
 
 export const getStaticProps = async () => {
-  const products = await fetchProducts();
+  const products = await getProducts();
+
   return {
     props: { products },
   };
@@ -12,25 +11,20 @@ export const getStaticProps = async () => {
 
 const Products = ({ products }) => {
   return (
-    <Layout>
-      <Head>
-        <title>This is the home page</title>
-      </Head>
-      <h1>This is Product page</h1>
-      <div>
+    <>
+      <section className="py-10">
+        <h2 className="text-center pb-10">Products</h2>
         {products ? (
-          products.map((product) => {
-            return (
-              <h1 key={product.id}>
-                <Link href={`/products/${product.slug}`}>{product.name}</Link>
-              </h1>
-            );
-          })
+          <div className="product-grid grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4">
+            {products.map((product) => {
+              return <ProductGridItem key={product.id} product={product} />;
+            })}
+          </div>
         ) : (
           <h1>Something Went Wrong</h1>
         )}
-      </div>
-    </Layout>
+      </section>
+    </>
   );
 };
 

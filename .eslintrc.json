@@ -26,6 +26,8 @@
     // disabling props type checking (for next.js)
     "react/prop-types": [0],
     "react/destructuring-assignment": [0, "always"],
-    "react/jsx-indent": ["error", 2]
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }

@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Navigation from './Navigation';
 
-import styles from '../assets/css/Header.module.css';
+import headerStyle from '../assets/css/Header.module.css';
 
 const Header = () => {
   return (
-    <header id={styles.main_header}>
-      <div className={`second_level_blur ${styles.top_header}`}>
+    <header id={headerStyle.main_header}>
+      <div className={`second_level_blur ${headerStyle.top_header}`}>
         <div className="top_header_inner pl-4 pr-4 flex justify-between items-center">
           <div className="header_icons flex items-center">
             <div className="hi_item pr-5 pb-2 pt-2 border-r border-gray-50">
@@ -39,15 +40,20 @@ const Header = () => {
           </div>
         </div>
       </div>
+
       <div className="primary_header">
-        <div className="primary_header_inner flex justify-between">
-          <div className="site-logo">
+        <div className="primary_header_inner flex justify-between items-center py-3">
+          <div className="site_logo w-1/6">
             <Link href="/">
               <a>
                 <Image src="/vercel.svg" width={282} height={64} layout="intrinsic" alt="Logo" />
               </a>
             </Link>
           </div>
+          <div className="navigation-container flex">
+            <Navigation />
+          </div>
+          <div className="header_additional_info w-1/6 text-right">some icons like cart</div>
         </div>
       </div>
     </header>

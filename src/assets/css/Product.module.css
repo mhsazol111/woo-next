@@ -1,0 +1,27 @@
+.product_hover_info {
+  
+}
+.product_item:hover .product_hover_info {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+.product_action > span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.product_action > span span {
+  display: none;
+}
+.product_action img {
+  width: 22px;
+}
+/* .product_hover_info {} */
+
+/* .product_hover_inner {} */
