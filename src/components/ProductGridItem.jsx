@@ -12,10 +12,11 @@ const ProductGridItem = ({ product }) => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`${productStyle.product_item} second_level_blur rounded-md p-5 relative overflow-hidden`}
+      key={product.id}
     >
       <Link href={`/products/${product.slug}`}>
         <a href="">
-          <motion.div variants={springFromRight} key={product.id} className="product_img text-center w-full block mt-5 mb-7">
+          <motion.div variants={springFromRight} key={`product-img-${product.id}`} className="product_img text-center w-full block mt-5 mb-7">
             <Image src={product.images[0].src} width={150} height={150} type="intrinsic" alt={product.name} className="m-auto" />
           </motion.div>
 

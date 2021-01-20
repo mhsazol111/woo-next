@@ -20,7 +20,7 @@ const Home = () => {
       <Head>
         <title>This is the home page</title>
       </Head>
-      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="section-1">
+      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" transition={{ delay: 1.5 }} className="section-1">
         <div className="flex items-center">
           <div className="lg:w-1/2 w-full">
             <motion.h1 variants={fadeInUp} initial="initial" animate="animate">

@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Head from 'next/head';
 
+import { motion } from 'framer-motion';
+import { pageTransition } from '../../src/services/animation';
+
 import { getProductBySlug, getProducts } from '../../src/services/fetchData';
 
 export const getStaticPaths = async () => {
@@ -34,11 +37,12 @@ const Product = ({ product }) => {
       <Head>
         <title>{productDetails.name}</title>
       </Head>
-      <div>
+
+      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
         <h1>{productDetails.name}</h1>
         <p>{productDetails.description}</p>
         <Image src={productDetails.images[0].src} alt={productDetails.images[0].name} width={500} height={500} />
-      </div>
+      </motion.div>
     </>
   );
 };

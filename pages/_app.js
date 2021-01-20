@@ -1,4 +1,5 @@
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import NextNprogress from 'nextjs-progressbar';
 
 import Head from 'next/head';
 import Header from '../src/components/Header';
@@ -7,6 +8,7 @@ import Footer from '../src/components/Footer';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps, router }) {
+  // const pageRoute = router.route;
   return (
     <>
       <Head>
@@ -17,9 +19,15 @@ function MyApp({ Component, pageProps, router }) {
       <div id="page-container">
         <div className="full-gradient-bg" />
         <div className="page-inner-container min-h-screen 2xl:container relative 2xl:p-12 md:p-10 p-9">
-          <div className="full-glass-bg" />
+          <motion.div
+            initial={{ scale: 0.5, borderRadius: '50%', opacity: 0 }}
+            animate={{ scale: 1, borderRadius: '1em', opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="full-glass-bg"
+          ></motion.div>
           <Header />
           <div id="main-content">
+            <NextNprogress />
             <AnimatePresence exitBeforeEnter>
               <Component {...pageProps} key={router.route} />
             </AnimatePresence>

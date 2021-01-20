@@ -20,7 +20,7 @@ const Products = ({ products }) => {
       <Head>
         <title>This is Products Page</title>
       </Head>
-      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" key="asdfdsf-page">
+      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit">
         <div className="py-10">
           <h2 className="text-center pb-10">Products</h2>
           {products ? (
