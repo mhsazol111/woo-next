@@ -53,7 +53,7 @@ const Header = () => {
           <div className="site_logo w-1/6">
             <Link href="/">
               <a>
-                <Image src="/vercel.svg" width={282} height={64} layout="intrinsic" alt="Logo" />
+                <Image src="/vercel.svg" width={240} height={58} layout="intrinsic" alt="Logo" />
               </a>
             </Link>
           </div>

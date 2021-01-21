@@ -3,7 +3,7 @@ import wooApiService from './WooFetch';
 
 const fetchData = async (url) => {
   try {
-    const { data: fetchedData } = await axios.get(`${process.env.apiEndpoint}/${url}`);
+    const { data: fetchedData } = await axios.get(`${process.env.API_ENDPOINT}/${url}`);
     return fetchedData;
   } catch (err) {
     return false;

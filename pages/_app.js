@@ -20,8 +20,8 @@ function MyApp({ Component, pageProps, router }) {
         <div className="full-gradient-bg" />
         <div className="page-inner-container min-h-screen 2xl:container relative 2xl:p-12 md:p-10 p-9">
           <motion.div
-            initial={{ scale: 0.5, borderRadius: '50%', opacity: 0 }}
-            animate={{ scale: 1, borderRadius: '1em', opacity: 1 }}
+            initial={{ scale: 0.1, y: '70%' }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
             className="full-glass-bg"
           ></motion.div>
