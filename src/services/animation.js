@@ -1,3 +1,23 @@
+export const fullPageTransition = {
+  initial: {
+    y: '100vh',
+    transition: {
+      duration: 5,
+      delay: 0.5,
+    },
+  },
+  animate: {
+    y: 0,
+  },
+  exit: {
+    y: '-100vh',
+    // transition: {
+    //   duration: 5,
+    //   delay: 0.5,
+    // },
+  },
+};
+
 export const pageTransition = {
   initial: {
     opacity: 0,
@@ -57,6 +77,7 @@ export const stagger = {
 };
 
 export default {
+  fullPageTransition,
   pageTransition,
   fadeInUp,
   springFromRight,

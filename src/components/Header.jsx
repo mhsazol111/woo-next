@@ -12,7 +12,7 @@ const Header = () => {
       <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8 }}
+        transition={{ delay: 0.4 }}
         className={`second_level_blur ${headerStyle.top_header}`}
       >
         <div className="top_header_inner pl-4 pr-4 flex justify-between items-center">
@@ -48,7 +48,7 @@ const Header = () => {
         </div>
       </motion.div>
 
-      <motion.div initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.7 }} className="primary_header">
+      <motion.div initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }} className="primary_header">
         <div className="primary_header_inner flex justify-between items-center py-3">
           <div className="site_logo w-1/6">
             <Link href="/">

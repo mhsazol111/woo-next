@@ -1280,7 +1280,7 @@ core-js-pure@^3.0.0:
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.8.2.tgz"
   integrity sha512-v6zfIQqL/pzTVAbZvYUozsxNfxcFb6Ks3ZfEbuneJl3FW9Jb8F6vLWB6f+qTmAu72msUdyb84V8d/yBFf7FNnw==
 
-core-js@^2.4.0:
+core-js@^2.4.0, core-js@^2.6.9:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
@@ -3064,6 +3064,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash-es@^4.17.15:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
+  integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz"
@@ -4206,6 +4211,11 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
+react-smooth-scrollbar@^8.0.6:
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/react-smooth-scrollbar/-/react-smooth-scrollbar-8.0.6.tgz#179072e6a547b3af589ea303c50fd86366275edc"
+  integrity sha512-yWiIC4L8DwfIRkLL+PdXq5rysEm6trxHzRk1Rx82bzuu2aWDcHhT+l1vXH/73Re/zHmGjBgrxts/wIrwC6yYJA==
+
 react@17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz"
@@ -4629,6 +4639,15 @@ slice-ansi@^4.0.0:
     ansi-styles "^4.0.0"
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
+
+smooth-scrollbar@^8.5.3:
+  version "8.5.3"
+  resolved "https://registry.yarnpkg.com/smooth-scrollbar/-/smooth-scrollbar-8.5.3.tgz#44a3090c85ad44422af87690e6051ef0c60bb0fc"
+  integrity sha512-0cBr/pbwgdPXLukpvVzx3LtBxRURwitdEMCuzykp7urVPb7+Cx9UhIT6CtprENM9Ghulgn+I78YYTA9MRH380g==
+  dependencies:
+    core-js "^2.6.9"
+    lodash-es "^4.17.15"
+    tslib "^1.10.0"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

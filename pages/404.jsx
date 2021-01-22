@@ -1,6 +1,17 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
+import Lottie from 'react-lottie';
 import { pageTransition } from '../src/services/animation';
+
+import lottie404 from '../src/assets/lottie/404-poky-heads.json';
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
 
 const NotFound = () => {
   return (
@@ -9,7 +20,7 @@ const NotFound = () => {
         <title>Ops.. Not found</title>
       </Head>
       <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="about-section">
-        <h1>Not Found</h1>
+        <Lottie options={{ defaultOptions, animationData: lottie404 }} height={500} width={900} />
       </motion.div>
     </>
   );
