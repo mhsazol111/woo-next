@@ -17,8 +17,11 @@
     "postcss": "^8.2.4",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
+    "react-cool-inview": "^1.2.0",
     "react-dom": "17.0.1",
+    "react-html-parser": "^2.0.2",
     "react-lottie": "^1.2.3",
+    "react-multi-carousel": "^2.6.1",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {

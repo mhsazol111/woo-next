@@ -1,23 +1,7 @@
-export const fullPageTransition = {
-  initial: {
-    y: '100vh',
-    transition: {
-      duration: 5,
-      delay: 0.5,
-    },
-  },
-  animate: {
-    y: 0,
-  },
-  exit: {
-    y: '-100vh',
-    // transition: {
-    //   duration: 5,
-    //   delay: 0.5,
-    // },
-  },
-};
+// Custom easing
+const easing = [0.6, -0.05, 0.01, 0.99];
 
+// Custom variant
 export const pageTransition = {
   initial: {
     opacity: 0,
@@ -30,14 +14,6 @@ export const pageTransition = {
   },
 };
 
-// animate: defines animation
-// initial: defines initial state of animation or stating point.
-// exit: defines animation when component exits
-
-// Our custom easing
-const easing = [0.6, -0.05, 0.01, 0.99];
-
-// Custom variant
 export const fadeInUp = {
   initial: {
     y: 60,
@@ -68,6 +44,32 @@ export const springFromRight = {
   },
 };
 
+export const sectionWrapper = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+export const sectionReveal = {
+  initial: {
+    y: 70,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 export const stagger = {
   animate: {
     transition: {
@@ -77,9 +79,10 @@ export const stagger = {
 };
 
 export default {
-  fullPageTransition,
   pageTransition,
   fadeInUp,
   springFromRight,
+  sectionWrapper,
+  sectionReveal,
   stagger,
 };
