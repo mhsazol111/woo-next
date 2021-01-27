@@ -202,3 +202,18 @@ body {
 .lottie-wrapper {
   pointer-events: none;
 }
+
+.page-animation-enter {
+  opacity: 0;
+}
+.page-animation-enter-active {
+  opacity: 1;
+  transition: all 700ms;
+}
+.page-animation-exit {
+  opacity: 1;
+}
+.page-animation-exit-active {
+  opacity: 0;
+  transition: all 700ms;
+}

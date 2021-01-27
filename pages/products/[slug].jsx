@@ -67,7 +67,7 @@ const Product = ({ product }) => {
               <div className={`${styles.product_image_gallery_wrap} second_level_blur rounded-lg`}>
                 <div className={`${styles.product_image_gallery}`}>
                   {productImages && (
-                    <Carousel infinite={true} keyBoardControl={true} swipeable={true} draggable={true} responsive={responsive}>
+                    <Carousel infinite keyBoardControl swipeable draggable responsive={responsive}>
                       {productImages.map((image) => {
                         return (
                           <div key={image.id} className={`${styles.product_gallery_item} flex flex-wrap justify-center items-center text-center`}>

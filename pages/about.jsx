@@ -12,7 +12,7 @@ const About = () => {
       <Head>
         <title>This is About Page</title>
       </Head>
-      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="about-section">
+      <div className="about-section">
         <div>
           <motion.h1>This is about us</motion.h1>
           <p>
@@ -195,7 +195,7 @@ const About = () => {
             alias! Ad eius voluptates quae earum, suscipit modi in nihil quaerat provident, fuga sit?
           </p>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };
