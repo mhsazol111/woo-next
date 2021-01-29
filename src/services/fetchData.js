@@ -15,9 +15,10 @@ export const getPosts = async () => {
   return posts;
 };
 
-export const getProducts = async () => {
+export const getProducts = async (params) => {
   try {
-    const response = await wooApiService.get('products');
+    const urlParams = params ? `products?${params}` : 'products';
+    const response = await wooApiService.get(urlParams);
     return response.data;
   } catch (error) {
     return false;
@@ -38,4 +39,4 @@ export const getNavById = async (id) => {
   return nav;
 };
 
-// export { getPosts, getProductBySlug, getProducts };
+export default { getPosts, getProductBySlug, getProducts, getNavById };

@@ -15,13 +15,13 @@ const ProductGridItem = ({ product }) => {
       key={product.id}
     >
       <Link href={`/products/${product.slug}`}>
-        <a href="">
+        <a>
           <motion.div variants={springFromRight} key={`product-img-${product.id}`} className="product_img text-center w-full block mt-5 mb-7">
             <Image src={product.images[0].src} width={150} height={150} type="intrinsic" alt={product.name} className="m-auto" />
           </motion.div>
 
           <div className="product_info">
-            <h4 className="product_title">{product.name}</h4>
+            <h4 className="product_title text-2xl">{product.name}</h4>
             <p className="product_price">${product.sale_price ? product.sale_price : product.price}</p>
           </div>
           <div

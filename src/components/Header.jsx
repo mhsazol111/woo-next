@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from './Navigation';
 
-import headerStyle from '../assets/css/Header.module.css';
+import headerStyle from '../assets/css/Header.module.scss';
 
 const Header = () => {
   return (

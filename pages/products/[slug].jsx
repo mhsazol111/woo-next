@@ -12,7 +12,7 @@ import { getProductBySlug, getProducts } from '../../src/services/fetchData';
 import styles from '../../src/assets/css/ProductDetails.module.css';
 
 export const getStaticPaths = async () => {
-  const products = await getProducts();
+  const products = await getProducts('per_page=50');
 
   const paths = products.map((product) => {
     return {

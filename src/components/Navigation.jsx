@@ -1,6 +1,6 @@
 import NavLink from './NavLink';
 
-import headerStyle from '../assets/css/Header.module.css';
+import headerStyle from '../assets/css/Header.module.scss';
 
 const Navigation = () => {
   return (

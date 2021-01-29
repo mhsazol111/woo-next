@@ -4,7 +4,7 @@ export const onPageEnter = (node) => {
   gsap.from(node, {
     duration: 0.3,
     y: 30,
-    delay: 0.6,
+    delay: 0.5,
     ease: 'power2',
     opacity: 0,
     stagger: {
