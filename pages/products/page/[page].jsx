@@ -2,25 +2,40 @@ import { useRouter } from 'next/router';
 import { Tween } from 'react-gsap';
 
 import Head from 'next/head';
-import ProductGridItem from '../src/components/ProductGridItem';
-import Pagination from '../src/components/Pagination';
+import ProductGridItem from '../../../src/components/ProductGridItem';
+import Pagination from '../../../src/components/Pagination';
 
-import { getProducts, getTotalProductPages } from '../src/services/fetchData';
+import { getProducts, getTotalProductPages } from '../../../src/services/fetchData';
 
-export const getStaticProps = async () => {
+export const getStaticPaths = async () => {
   const totalPages = await getTotalProductPages();
-  const products = await getProducts();
+
+  const pagesArray = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pagesArray.push({ params: { page: i.toString() } });
+  }
+
   return {
-    props: { products, totalPages },
+    paths: pagesArray,
+    fallback: false,
   };
 };
 
-const Products = ({ products, totalPages }) => {
+export const getStaticProps = async ({ params }) => {
+  const currentPage = params.page;
+  const totalPages = await getTotalProductPages();
+  const products = await getProducts(`page=${currentPage}`);
+  return {
+    props: { products, totalPages, currentPage },
+  };
+};
+
+const PageNumber = ({ products, totalPages, currentPage }) => {
   // Handle Pagination Page changes
   const router = useRouter();
   const handlePageChange = (pageNumber) => {
     router.push({
-      pathname: `products/page/${pageNumber.selected + 1}`,
+      pathname: `/products/page/${pageNumber.selected + 1}`,
     });
   };
 
@@ -42,7 +57,7 @@ const Products = ({ products, totalPages }) => {
                 })}
               </div>
               <Tween from={{ y: 30, delay: 0.7, opacity: 0 }} duration={0.7} delay={5} ease="power3.out">
-                <Pagination initialPage={1} totalPage={totalPages} onPageChange={handlePageChange} />
+                <Pagination initialPage={currentPage} totalPage={totalPages} onPageChange={handlePageChange} />
               </Tween>
             </>
           ) : (
@@ -54,4 +69,4 @@ const Products = ({ products, totalPages }) => {
   );
 };
 
-export default Products;
+export default PageNumber;

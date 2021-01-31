@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Lottie from 'react-lottie';
 import { pageTransition } from '../src/services/animation';
@@ -19,9 +18,9 @@ const NotFound = () => {
       <Head>
         <title>Ops.. Not found</title>
       </Head>
-      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="about-section">
+      <div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="about-section">
         <Lottie options={{ defaultOptions, animationData: lottie404 }} height={500} width={900} />
-      </motion.div>
+      </div>
     </>
   );
 };

@@ -25,6 +25,20 @@ export const getProducts = async (params) => {
   }
 };
 
+export const getTotalProducts = async () => {
+  try {
+    const response = await wooApiService.get('products?per_page=99999');
+    return response.data;
+  } catch (error) {
+    return false;
+  }
+};
+
+export const getTotalProductPages = async () => {
+  const totalProducts = await getTotalProducts();
+  return totalProducts ? Math.ceil(totalProducts.length / 10) : 1;
+};
+
 export const getProductBySlug = async (slug) => {
   try {
     const product = await wooApiService.get(`products/?slug=${slug}`);
@@ -39,4 +53,4 @@ export const getNavById = async (id) => {
   return nav;
 };
 
-export default { getPosts, getProductBySlug, getProducts, getNavById };
+export default { getPosts, getProductBySlug, getProducts, getTotalProducts, getTotalProductPages, getNavById };

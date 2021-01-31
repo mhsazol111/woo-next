@@ -1,0 +1,43 @@
+.primary_title {
+}
+.service_grid {
+}
+.service_item {
+  img {
+    max-width: 100px;
+    width: 90%;
+    margin: 10px auto 12px;
+  }
+}
+
+.plane_scroll_wrapper {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
+  .plane_scroll_inner {
+    animation: floatingPlane 1s infinite alternate;
+    img {
+      max-width: 250px;
+      width: 100%;
+    }
+  }
+}
+
+@keyframes floatingPlane {
+  0% {
+    -webkit-transform: translate(-2px, -2px) rotate(-8deg);
+    -moz-transform: translate(-2px, -2px) rotate(-8deg);
+    transform: translate(-2px, -2px) rotate(-8deg);
+  }
+  50% {
+    -webkit-transform: translate(5px, 2px) rotate(-6deg);
+    -moz-transform: translate(5px, 2px) rotate(-6deg);
+    transform: translate(5px, 2px) rotate(-6deg);
+  }
+  100% {
+    -webkit-transform: translate(-2px, 4px) rotate(-8deg);
+    -moz-transform: translate(-2px, 4px) rotate(-8deg);
+    transform: translate(-2px, 4px) rotate(-8deg);
+  }
+}

@@ -1,5 +1,4 @@
 import ReactHtmlParser from 'react-html-parser';
-import { motion } from 'framer-motion';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -60,7 +59,7 @@ const Product = ({ product }) => {
         <title>{productDetails.name}</title>
       </Head>
 
-      <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="page-content">
+      <div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="page-content">
         <div className="section_1">
           <div className="flex flex-wrap">
             <div className="lg:w-1/2 w-full">
@@ -71,9 +70,9 @@ const Product = ({ product }) => {
                       {productImages.map((image) => {
                         return (
                           <div key={image.id} className={`${styles.product_gallery_item} flex flex-wrap justify-center items-center text-center`}>
-                            <motion.div variants={springFromRight}>
+                            <div variants={springFromRight}>
                               <Image src={image.src} alt={image.name} width={400} height={400} />
-                            </motion.div>
+                            </div>
                           </div>
                         );
                       })}
@@ -84,25 +83,25 @@ const Product = ({ product }) => {
             </div>
             <div className="lg:w-1/2 w-full">
               <div className={`${styles.product_info_panel} flex flex-wrap align-center justify-center items-center min-h-full`}>
-                <motion.div variants={stagger} className={`${styles.product_info_panel_inner} w-full lg:px-10 md:px-7 px-5`}>
-                  <motion.div variants={fadeInUp} className={`${styles.product_categories}`}>
+                <div variants={stagger} className={`${styles.product_info_panel_inner} w-full lg:px-10 md:px-7 px-5`}>
+                  <div variants={fadeInUp} className={`${styles.product_categories}`}>
                     {productCategories &&
                       productCategories.map((cat) => {
                         return <span key={cat.id}>{cat.name}</span>;
                       })}
-                  </motion.div>
-                  <motion.h1 variants={fadeInUp} className={`${styles.product_title} xl:py-8 py-5`}>
+                  </div>
+                  <h1 variants={fadeInUp} className={`${styles.product_title} xl:py-8 py-5`}>
                     {productDetails.name}
-                  </motion.h1>
-                  <motion.div variants={fadeInUp} className="product_description">
+                  </h1>
+                  <div variants={fadeInUp} className="product_description">
                     {ReactHtmlParser(productDetails.description)}
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };

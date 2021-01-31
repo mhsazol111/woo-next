@@ -3,16 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED='0' next dev",
+    "build": "NODE_TLS_REJECT_UNAUTHORIZED='0' next build",
+    "start": "NODE_TLS_REJECT_UNAUTHORIZED='0' next start"
   },
   "dependencies": {
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "autoprefixer": "^10.2.1",
     "axios": "^0.21.1",
-    "framer-motion": "^3.2.1",
-    "gsap": "^3.6.0",
+    "gsap": "npm:@gsap/member",
     "next": "10.0.5",
     "nextjs-progressbar": "^0.0.7",
     "postcss": "^8.2.4",

@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
 
-import '../styles/globals.css';
+import '../src/assets/css/Global.scss';
 
 function MyApp({ Component, pageProps, router }) {
   return (
