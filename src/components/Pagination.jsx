@@ -1,7 +1,8 @@
+import React from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from '../assets/css/Pagination.module.scss';
 
-const Pagination = ({ initialPage, totalPage, onPageChange }) => {
+const Pagination = React.forwardRef(({ initialPage, totalPage, onPageChange }, ref) => {
   return (
     <ReactPaginate
       disableInitialCallback
@@ -23,5 +24,5 @@ const Pagination = ({ initialPage, totalPage, onPageChange }) => {
       breakLinkClassName={styles.paginate_break_a}
     />
   );
-};
+});
 export default Pagination;

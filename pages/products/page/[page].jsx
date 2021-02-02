@@ -52,12 +52,16 @@ const PageNumber = ({ products, totalPages, currentPage }) => {
           {products ? (
             <>
               <div className="product-grid grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4">
-                {products.map((product, index) => {
-                  return <ProductGridItem key={product.id} index={index} product={product} />;
-                })}
+                <Tween from={{ y: 30, delay: 0.7, opacity: 0 }} duration={0.5} stagger={0.1} ease="power3.out">
+                  {products.map((product, index) => {
+                    return <ProductGridItem key={product.id} index={index} product={product} />;
+                  })}
+                </Tween>
               </div>
-              <Tween from={{ y: 30, delay: 0.7, opacity: 0 }} duration={0.7} delay={5} ease="power3.out">
-                <Pagination initialPage={currentPage} totalPage={totalPages} onPageChange={handlePageChange} />
+              <Tween from={{ y: 30, delay: 0.9, opacity: 0 }} duration={0.7} ease="power3.out">
+                <div className="paginate-wrap">
+                  <Pagination initialPage={currentPage} totalPage={totalPages} onPageChange={handlePageChange} />
+                </div>
               </Tween>
             </>
           ) : (

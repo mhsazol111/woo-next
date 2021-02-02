@@ -1,3 +1,5 @@
+import { createRef, useRef } from 'react';
+import { Tween } from 'react-gsap';
 import ReactHtmlParser from 'react-html-parser';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -5,10 +7,10 @@ import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image';
 import Head from 'next/head';
 
-import { pageTransition, springFromRight, fadeInUp } from '../../src/services/animation';
+import { fadeInUp } from '../../src/services/animation';
 import { getProductBySlug, getProducts } from '../../src/services/fetchData';
 
-import styles from '../../src/assets/css/ProductDetails.module.css';
+import styles from '../../src/assets/css/ProductDetails.module.scss';
 
 export const getStaticPaths = async () => {
   const products = await getProducts('per_page=50');
@@ -38,6 +40,8 @@ const Product = ({ product }) => {
   const productImages = productDetails.images;
   const productCategories = productDetails.categories;
 
+  const sRef = createRef();
+
   const responsive = {
     device: {
       breakpoint: { max: 4000, min: 300 },
@@ -45,13 +49,7 @@ const Product = ({ product }) => {
     },
   };
 
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
+  console.log(productDetails);
 
   return (
     <>
@@ -59,10 +57,10 @@ const Product = ({ product }) => {
         <title>{productDetails.name}</title>
       </Head>
 
-      <div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="page-content">
-        <div className="section_1">
-          <div className="flex flex-wrap">
-            <div className="lg:w-1/2 w-full">
+      <div className="section-1">
+        <div className="flex flex-wrap">
+          <div className="lg:w-1/2 w-full">
+            <Tween from={{ scale: 1.3, delay: 0.7, opacity: 0 }} duration={0.7} ease="power3.out">
               <div className={`${styles.product_image_gallery_wrap} second_level_blur rounded-lg`}>
                 <div className={`${styles.product_image_gallery}`}>
                   {productImages && (
@@ -70,9 +68,11 @@ const Product = ({ product }) => {
                       {productImages.map((image) => {
                         return (
                           <div key={image.id} className={`${styles.product_gallery_item} flex flex-wrap justify-center items-center text-center`}>
-                            <div variants={springFromRight}>
-                              <Image src={image.src} alt={image.name} width={400} height={400} />
-                            </div>
+                            <Tween from={{ x: 30, delay: 1.1, opacity: 0 }} duration={0.7} ease="power3.out">
+                              <div>
+                                <Image src={image.src} alt={image.name} width={400} height={400} />
+                              </div>
+                            </Tween>
                           </div>
                         );
                       })}
@@ -80,10 +80,12 @@ const Product = ({ product }) => {
                   )}
                 </div>
               </div>
-            </div>
-            <div className="lg:w-1/2 w-full">
-              <div className={`${styles.product_info_panel} flex flex-wrap align-center justify-center items-center min-h-full`}>
-                <div variants={stagger} className={`${styles.product_info_panel_inner} w-full lg:px-10 md:px-7 px-5`}>
+            </Tween>
+          </div>
+          <div className="lg:w-1/2 w-full">
+            <div className={`${styles.product_info_panel} flex flex-wrap align-center justify-center items-center min-h-full`}>
+              <div className={`${styles.product_info_panel_inner} w-full lg:px-10 md:px-7 px-5`}>
+                <Tween from={{ y: 30, delay: 0.8, opacity: 0 }} duration={0.7} stagger={0.2} ease="power3.out">
                   <div variants={fadeInUp} className={`${styles.product_categories}`}>
                     {productCategories &&
                       productCategories.map((cat) => {
@@ -96,7 +98,7 @@ const Product = ({ product }) => {
                   <div variants={fadeInUp} className="product_description">
                     {ReactHtmlParser(productDetails.description)}
                   </div>
-                </div>
+                </Tween>
               </div>
             </div>
           </div>

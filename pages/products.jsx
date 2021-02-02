@@ -1,3 +1,4 @@
+import { createRef, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { Tween } from 'react-gsap';
 
@@ -24,6 +25,9 @@ const Products = ({ products, totalPages }) => {
     });
   };
 
+  const sRef = useRef([]);
+  const anotherRef = useRef([]);
+
   return (
     <>
       <Head>
@@ -37,12 +41,16 @@ const Products = ({ products, totalPages }) => {
           {products ? (
             <>
               <div className="product-grid grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4">
-                {products.map((product, index) => {
-                  return <ProductGridItem key={product.id} index={index} product={product} />;
-                })}
+                <Tween from={{ y: 30, delay: 0.7, opacity: 0 }} duration={0.5} stagger={0.1} ease="power3.out">
+                  {products.map((product, index) => {
+                    return <ProductGridItem ref={sRef} key={product.id} index={index} product={product} />;
+                  })}
+                </Tween>
               </div>
-              <Tween from={{ y: 30, delay: 0.7, opacity: 0 }} duration={0.7} delay={5} ease="power3.out">
-                <Pagination initialPage={1} totalPage={totalPages} onPageChange={handlePageChange} />
+              <Tween from={{ y: 30, delay: 0.9, opacity: 0 }} duration={0.7} ease="power3.out">
+                <div className="paginate-wrap">
+                  <Pagination initialPage={1} totalPage={totalPages} onPageChange={handlePageChange} />
+                </div>
               </Tween>
             </>
           ) : (

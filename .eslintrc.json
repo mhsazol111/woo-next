@@ -35,6 +35,7 @@
         "component": true,
         "html": false
       }
-    ]
+    ],
+    "react/display-name": [true, { "ignoreTranspilerName": false }]
   }
 }
