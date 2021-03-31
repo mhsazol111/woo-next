@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import { Tween } from 'react-gsap';
 
 import Image from 'next/image';
@@ -5,8 +6,11 @@ import Link from 'next/link';
 import Navigation from './Navigation';
 
 import headerStyle from '../assets/css/Header.module.scss';
+import { AppContext } from '../context/AppContext';
 
 const Header = () => {
+  const [siteCart] = useContext(AppContext);
+
   return (
     <header id={headerStyle.main_header}>
       <Tween from={{ y: -30, delay: 0.5, opacity: 0 }} duration={0.7} stagger={0.2} ease="power3.out">
@@ -55,7 +59,11 @@ const Header = () => {
             <div className="navigation-container flex">
               <Navigation />
             </div>
-            <div className="header_additional_info w-1/6 text-right">some icons like cart</div>
+            <div className="header_additional_info w-1/6 text-right">
+              <Link href="/cart">
+                <a>cart {siteCart ? siteCart.length : 0}</a>
+              </Link>
+            </div>
           </div>
         </div>
       </Tween>

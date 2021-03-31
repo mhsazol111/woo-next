@@ -1,9 +1,6 @@
 module.exports = {
-  purge: {
-    enabled: true,
-    content: ['./pages/**/*.js', './pages/**/*.jsx', './src/components/**/*.js', './src/components/**/*.jsx'],
-  },
-  // darkMode: 'media', // or 'media' or 'class'
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+  darkMode: false,
   theme: {
     container: {
       center: true,

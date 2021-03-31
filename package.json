@@ -9,12 +9,10 @@
   },
   "dependencies": {
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
-    "autoprefixer": "^10.2.1",
     "axios": "^0.21.1",
     "gsap": "file:gsap-bonus.tgz",
     "next": "10.0.5",
     "nextjs-progressbar": "^0.0.7",
-    "postcss": "^8.2.4",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -23,10 +21,11 @@
     "react-lottie": "^1.2.3",
     "react-multi-carousel": "^2.6.1",
     "react-paginate": "^7.0.0",
-    "react-transition-group": "^4.4.1",
-    "tailwindcss": "^2.0.2"
+    "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
+    "@tailwindcss/jit": "^0.1.18",
+    "autoprefixer": "^10.2.5",
     "eslint": "^7.17.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.1.0",
@@ -36,6 +35,8 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "node-sass": "^5.0.0",
-    "prettier": "^2.2.1"
+    "postcss": "^8.2.9",
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.0.4"
   }
 }
