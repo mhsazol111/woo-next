@@ -1,4 +1,4 @@
-import { createRef, useRef } from 'react';
+import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { Tween } from 'react-gsap';
 
@@ -26,7 +26,6 @@ const Products = ({ products, totalPages }) => {
   };
 
   const sRef = useRef([]);
-  const anotherRef = useRef([]);
 
   return (
     <>
@@ -42,8 +41,8 @@ const Products = ({ products, totalPages }) => {
             <>
               <div className="product-grid grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4">
                 <Tween from={{ y: 30, delay: 0.7, opacity: 0 }} duration={0.5} stagger={0.1} ease="power3.out">
-                  {products.map((product, index) => {
-                    return <ProductGridItem ref={sRef} key={product.id} index={index} product={product} />;
+                  {products.map((product) => {
+                    return <ProductGridItem ref={sRef} key={product.id} product={product} />;
                   })}
                 </Tween>
               </div>

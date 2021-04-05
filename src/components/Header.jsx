@@ -9,7 +9,7 @@ import headerStyle from '../assets/css/Header.module.scss';
 import { AppContext } from '../context/AppContext';
 
 const Header = () => {
-  const [siteCart] = useContext(AppContext);
+  const [globalCart] = useContext(AppContext);
 
   return (
     <header id={headerStyle.main_header}>
@@ -61,7 +61,7 @@ const Header = () => {
             </div>
             <div className="header_additional_info w-1/6 text-right">
               <Link href="/cart">
-                <a>cart {siteCart ? siteCart.length : 0}</a>
+                <a>cart {globalCart ? globalCart.length : 0}</a>
               </Link>
             </div>
           </div>

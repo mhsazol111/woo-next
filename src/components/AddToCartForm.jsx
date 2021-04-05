@@ -1,14 +1,15 @@
 import { useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext';
-import { addToCart, clearCart, updateCart, getProductCart, getCartData } from '../services/cart';
+import { addToCart, getCartData } from '../services/cart';
 
 const AddToCartForm = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const stock = product.stock_quantity;
-  const [siteCart, setSiteCart] = useContext(AppContext);
+  const [globalCart, setGlobalCart] = useContext(AppContext);
 
   const handleIncrement = () => {
-    setQuantity(quantity > (stock ? stock : 999) ? quantity : quantity + 1);
+    const count = quantity > (stock ? stock : 999) ? quantity : quantity + 1;
+    setQuantity(count);
   };
 
   const handleDecrement = () => {
@@ -26,12 +27,7 @@ const AddToCartForm = ({ product }) => {
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
-    setSiteCart(getCartData()); // Update the global cart
-  };
-
-  const handleClearCart = () => {
-    clearCart();
-    setSiteCart(getCartData()); // Update the global cart
+    setGlobalCart(getCartData()); // Update the global cart
   };
 
   const handleGetProduct = () => {
@@ -60,19 +56,6 @@ const AddToCartForm = ({ product }) => {
       <div className="cart-btn-section">
         <button className="bg-green-300 px-2 py-1 mr-2" onClick={handleAddToCart}>
           Add to cart
-        </button>
-
-        <button className="bg-red-500 px-2 py-1 mr-2" onClick={handleClearCart}>
-          Clear Cart
-        </button>
-
-        <button
-          className="bg-indigo-300 px-2 py-1 mr-2"
-          onClick={() => {
-            updateCart('cr_1614888542934');
-          }}
-        >
-          Update Cart
         </button>
 
         <button

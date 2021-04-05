@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import productStyle from '../assets/css/Product.module.css';
 
-const ProductGridItem = React.forwardRef(({ product, index }, ref) => {
+const ProductGridItem = React.forwardRef(({ product }, ref) => {
   return (
     <div ref={ref} className={`${productStyle.product_item} second_level_blur rounded-md p-5 relative overflow-hidden`}>
       <Link href={`/products/${product.slug}`}>
